@@ -1,0 +1,35 @@
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content" style="padding: 20px;">
+        <div class="modal-header">
+          <h1 class="modal-title" id="exampleModalLongTitle" style="color: #000;">Adicionar serviço</h1>
+        </div>
+        <div class="modal-body">
+          <div class="box-input row px-2">
+            <label style="font-size: .87rem; color: #0A1F44;">Nome do serviço</label>
+            <input name="nome" id="nome" type="text" [(ngModel)]="nomeServico" required placeholder="Nome do serviço">
+          </div>
+          <div class="box-input row px-2">
+            <label style="font-size: .87rem; color: #0A1F44;">Valor do serviço (R$)</label>
+            <input name="valor" id="valor" type="number" [(ngModel)]="valorServico" required placeholder="Valor do serviço (R$)">
+          </div>
+          <div class="box-input row px-2">
+            <label style="font-size: .87rem; color: #0A1F44;">Duração do serviço (minutos)</label>
+            <input name="duracao" id="duracao" type="number" [(ngModel)]="duracaoServico" required placeholder="Duração do serviço (minutos)">
+          </div>
+          <div>
+            <button id="submit" type="submit" class="botao" (click)="adicionarServico()"><i></i>ADICIONAR</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div *ngFor="let servico of servicos" class="card">
+    <h3>{{ servico.nome }}</h3>
+    <p>Valor: R$ {{ servico.valor }}</p>
+    <p>Duração: {{ servico.duracao }} minutos</p>
+  </div>
+  <div *ngIf="servicos.length > 0" class="box-input row px-2">
+    <button class="botao salvar" (click)="salvarServicos()">Salvar</button>
+  </div>

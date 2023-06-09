@@ -1,0 +1,24 @@
+/* header.component.css */
+.brand-name {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 10px;
+    border-bottom: 2px solid black;
+    border-top: 20px solid black;
+  }
+  
+  .brand-logo {
+    margin-right: 10px;
+  }
+  
+  /* footer.component.css */
+  .footer {
+    background-color: #0741ad;
+    padding: 10px;
+    color: #fff;
+    text-align: center;
+    border-top: 2px solid black;
+    border-bottom: 20px solid black;
+  }
+  

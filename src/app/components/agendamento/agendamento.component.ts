@@ -1,11 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AgendamentoService } from 'src/app/services/agendamento.service';
+
 
 @Component({
   selector: 'app-agendamento',
   templateUrl: './agendamento.component.html',
   styleUrls: ['./agendamento.component.css']
 })
-export class AgendamentoComponent {
+export class AgendamentoComponent implements OnInit{
+
+  constructor(private agendamentoService: AgendamentoService) {
+
+  }
+
+  ngOnInit(): void {
+
+  }
+
   servicos: any[] = [
     { id: 1, nome: 'Serviço 1', valor: 10, duracao: 30 },
     { id: 2, nome: 'Serviço 2', valor: 20, duracao: 60 },

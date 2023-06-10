@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { FormsModule } from '@angular/forms';
+import { Servico } from 'src/app/model/servico';
+import { ServicoService } from 'src/app/services/servico.service';
 
 @Component({
   selector: 'app-servicos',
@@ -11,9 +13,13 @@ export class ServicosComponent implements OnInit {
   //cliente = 0 | funcionario = 1
   perfil!: number;
   titulo: string = "";
-  listaServicos: string[] = [];
+  listaServicos: Servico[] = [];
   listaServicosAgendados: string[] = [];
   listaAgendamentos: string[] = [];
+
+  constructor(private servicoService: ServicoService) {
+
+  }
 
   ngOnInit(): void {
     this.verificarPerfil();
@@ -36,6 +42,15 @@ export class ServicosComponent implements OnInit {
   }
 
   carregarServicos(): void {
+    this.servicoService.listarTodosServicos().subscribe(
+      (servicos: Servico[]) => {
+        this.listaServicos = servicos
+      },
+      (error: any) => {
+        // Lidar com erros, se houver algum
+        console.error('Erro ao carregar serviços:', error);
+      }
+    );
   }
 
   carregarAgendamentos(): void {

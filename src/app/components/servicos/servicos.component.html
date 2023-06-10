@@ -1,6 +1,3 @@
-<head>
-    <title>{{ titulo }}</title>
-</head>
 <body style="background-color: #2196f3">
     <div class="troca-perfil perfil">
         <label style="background-color: #0741ad; color: white;" for="client-profile"  type="radio" id="client-profile" name="profile"  (click)="trocarPerfilCliente()">Cliente</label>
@@ -10,7 +7,7 @@
     <div *ngIf="perfil == 0" >
         <h2>Perfil do Cliente</h2>
         <ul>
-            <li *ngFor="let servico of listaServicos">{{ servico }}</li>
+            <li *ngFor="let servico of listaServicos">{{ servico.nome }} - R${{ servico.preco }}</li>
             <div class="troca-perfil add-servico">
                 <button style="background-color: #0741ad; color: white;" for="client-profile"  type="radio" id="client-profile" name="profile" [routerLink]="['/realizar-agendamento']">Realizar agendamento de serviços</button>
             </div>
@@ -19,7 +16,7 @@
     <div *ngIf="perfil == 1" >
         <h2>Perfil do Funcionário</h2>
         <ul>
-            <li *ngFor="let servico of listaServicosAgendados">{{ servico }}</li>
+            <li *ngFor="let servico of listaServicos">{{ servico.nome }}</li>
             <div class="troca-perfil add-servico">
                 <button style="background-color: #0741ad; color: white;" for="client-profile"  type="radio" id="client-profile" name="profile" [routerLink]="['/cadastrar-servicos']">cadastrar Serviços</button>
             </div>

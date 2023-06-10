@@ -8,6 +8,7 @@ import { ServicosComponent } from './components/servicos/servicos.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CadastrarServicosComponent } from './components/cadastrar-servicos/cadastrar-servicos.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -15,12 +16,14 @@ import { FormsModule } from '@angular/forms';
     AgendamentoComponent,
     ServicosComponent,
     CadastrarServicosComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FormsModule 
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

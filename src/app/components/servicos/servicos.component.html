@@ -5,16 +5,17 @@
     </div>
     <h1 style="background-color: rgba(255, 255, 255, 0.31); border-radius: 90%;">{{ titulo }}</h1>
     <div *ngIf="perfil == 0" >
-        <h2>Perfil do Cliente</h2>
+        <h2>Serviços disponíveis</h2>
         <ul>
             <li *ngFor="let servico of listaServicos">{{ servico.nome }} - R${{ servico.preco }}</li>
             <div class="troca-perfil add-servico">
                 <button style="background-color: #0741ad; color: white;" for="client-profile"  type="radio" id="client-profile" name="profile" [routerLink]="['/realizar-agendamento']">Realizar agendamento de serviços</button>
+                <button style="background-color: #0741ad; color: white; margin-left: 10px;" for="client-profile"  type="radio" id="client-profile" name="profile" [routerLink]="['/meus-agendamentos']">Agendamentos</button>
             </div>
         </ul>
     </div>
     <div *ngIf="perfil == 1" >
-        <h2>Perfil do Funcionário</h2>
+        <h2>Serviços cadastrados</h2>
         <ul>
             <li *ngFor="let servico of listaServicos">{{ servico.nome }}</li>
             <div class="troca-perfil add-servico">

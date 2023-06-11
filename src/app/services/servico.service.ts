@@ -30,7 +30,7 @@ export class ServicoService {
       return this.atualizarServico(servico);
     }
     // console.log('create');
-    return this.atualizarServico(servico);
+    return this.criarServico(servico);
   }
 
   private criarServico(servico: Partial<Servico>) {

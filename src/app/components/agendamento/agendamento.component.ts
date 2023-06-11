@@ -1,5 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { Agendamento } from 'src/app/model/agendamento';
+import { Funcionario } from 'src/app/model/funcionario';
+import { Servico } from 'src/app/model/servico';
+import { Veiculo } from 'src/app/model/veiculo';
 import { AgendamentoService } from 'src/app/services/agendamento.service';
+import { FuncionarioService } from 'src/app/services/funcionario.service';
+import { ServicoService } from 'src/app/services/servico.service';
+import { VeiculoService } from 'src/app/services/veiculo.service';
 
 
 @Component({
@@ -8,23 +15,59 @@ import { AgendamentoService } from 'src/app/services/agendamento.service';
   styleUrls: ['./agendamento.component.css']
 })
 export class AgendamentoComponent implements OnInit{
+  servicos: Servico[] = [];
+  listaVeiculos: Veiculo[] = [];
+  listaFuncionariosDisponiveis: Funcionario[] = [];
+  servicosAdicionados: Servico[] = [];
+  servicoSelecionado: any;
+  veiculoSelecionado: any;
 
-  constructor(private agendamentoService: AgendamentoService) {
+  constructor(private agendamentoService: AgendamentoService, private servicoService: ServicoService, private veiculoService: VeiculoService, private funcioanrioService: FuncionarioService) {
 
   }
 
   ngOnInit(): void {
+    this.carregarServicos();
+    this.carregarVeiculosCliente();
+    this.carregaFuncionariosDisponiveis();
 
   }
+  carregarVeiculosCliente() {
+    this.veiculoService.listarTodosVeiculos().subscribe(
+      (servicos: Veiculo[]) => {
+        this.listaVeiculos = servicos
+      },
+      (error: any) => {
+        // Lidar com erros, se houver algum
+        console.error('Erro ao carregar serviços:', error);
+      }
+    );
+  }
 
-  servicos: any[] = [
-    { id: 1, nome: 'Serviço 1', valor: 10, duracao: 30 },
-    { id: 2, nome: 'Serviço 2', valor: 20, duracao: 60 },
-    { id: 3, nome: 'Serviço 3', valor: 30, duracao: 90 }
-  ];
+  carregaFuncionariosDisponiveis() {
+    this.funcioanrioService.listarTodosFuncionarios().subscribe(
+      (funcionario: Funcionario[]) => {
+        this.listaFuncionariosDisponiveis = funcionario
+        console.log(this.listaFuncionariosDisponiveis);
+      },
+      (error: any) => {
+        // Lidar com erros, se houver algum
+        console.error('Erro ao carregar serviços:', error);
+      }
+    );
+  }
 
-  servicosAdicionados: any[] = [];
-  servicoSelecionado: any;
+  carregarServicos(): void {
+    this.servicoService.listarTodosServicos().subscribe(
+      (servicos: Servico[]) => {
+        this.servicos = servicos
+      },
+      (error: any) => {
+        // Lidar com erros, se houver algum
+        console.error('Erro ao carregar serviços:', error);
+      }
+    );
+  }
 
   adicionarServico(): void {
     if (this.servicoSelecionado) {
@@ -36,7 +79,7 @@ export class AgendamentoComponent implements OnInit{
   calcularValorTotalServicos(): number {
     let total = 0;
     for (const servico of this.servicosAdicionados) {
-      total += servico.valor;
+      total += servico.preco;
     }
     return total;
   }
@@ -44,12 +87,35 @@ export class AgendamentoComponent implements OnInit{
   calcularDuracaoTotalServicos(): number {
     let total = 0;
     for (const servico of this.servicosAdicionados) {
-      total += servico.duracao;
+      total += parseInt(servico.duracao, 10);
     }
     return total;
   }
 
   salvarAgendamento(): void {
-    // Lógica para salvar o agendamento
+    const agendamento: Agendamento = {
+      id: 0, // O ID será gerado pelo servidor
+      veiculos: this.listaVeiculos.filter(veiculo => veiculo),
+      servicos: this.servicosAdicionados,
+      funcionarios: this.listaFuncionariosDisponiveis.filter(funcionario => funcionario),
+      preco: this.calcularValorTotalServicos(),
+      dataEntrada: new Date(), // Defina a data de entrada conforme necessário
+      dataSaida: new Date() // Defina a data de saída conforme necessário
+    };
+  
+    this.agendamentoService.salvarAgendamento(agendamento).subscribe(
+      (resposta: Agendamento) => {
+        console.log('Agendamento salvo com sucesso:', resposta);
+        // Realize as ações necessárias após o salvamento do agendamento
+      },
+      (error: any) => {
+        console.error('Erro ao salvar agendamento:', error);
+        // Lidar com erros, se houver algum
+      }
+    );
+  }
+
+  cancelarAgendamento() {
+    this.servicosAdicionados = [];
   }
 }

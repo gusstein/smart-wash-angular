@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CadastrarServicosComponent } from './components/cadastrar-servicos/cadastrar-servicos.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AgendamentosClienteComponent } from './components/agendamentos-cliente/agendamentos-cliente.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
     AgendamentoComponent,
     ServicosComponent,
     CadastrarServicosComponent,
+    AgendamentosClienteComponent,
 
   ],
   imports: [

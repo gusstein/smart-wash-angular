@@ -1,44 +1,47 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Veiculo } from '../model/veiculo';
+import { first } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class VeiculoService {
 
-  private readonly API = 'api/servicos'
+  private readonly API = 'api/veiculos'
 
   constructor(private httpClient: HttpClient) { }
 
-  listarTodosServicos() {
-    return this.httpClient.get<Servico[]>(this.API)
+  listarTodosVeiculos() {
+    return this.httpClient.get<Veiculo[]>(this.API)
       .pipe(
         first(),
       );
   }
 
   loadById(id: string) {
-    return this.httpClient.get<Servico>(`${this.API}/${id}`);
+    return this.httpClient.get<Veiculo>(`${this.API}/${id}`);
   }
 
-  salvarServico(servico: Partial<Servico>) {
-    // console.log(servico);
-    if (servico.id) {
+  salvarVeiculo(veiculo: Partial<Veiculo>) {
+    // console.log(Veiculo);
+    if (veiculo.id) {
       // console.log('update');
-      return this.atualizarServico(servico);
+      return this.atualizarVeiculo(veiculo);
     }
     // console.log('create');
-    return this.atualizarServico(servico);
+    return this.atualizarVeiculo(veiculo);
   }
 
-  private criarServico(servico: Partial<Servico>) {
-    return this.httpClient.post<Servico>(this.API, servico).pipe(first());
+  private criarVeiculo(veiculo: Partial<Veiculo>) {
+    return this.httpClient.post<Veiculo>(this.API, veiculo).pipe(first());
   }
 
-  private atualizarServico(servico: Partial<Servico>) {
-    return this.httpClient.put<Servico>(`${this.API}/${servico.id}`, servico).pipe(first());
+  private atualizarVeiculo(veiculo: Partial<Veiculo>) {
+    return this.httpClient.put<Veiculo>(`${this.API}/${veiculo.id}`, veiculo).pipe(first());
   }
 
-  removerServico(id: string) {
+  removerVeiculo(id: string) {
     return this.httpClient.delete(`${this.API}/${id}`).pipe(first());
   }
 

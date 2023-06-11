@@ -24,7 +24,7 @@ export class ServicosComponent implements OnInit {
   ngOnInit(): void {
     this.verificarPerfil();
     if(this.perfil == 0) {
-      this.carregarServicos(); // Chame o método para carregar os serviços
+      this.carregarServicos();
     } else {
       this.carregarServicos();
     }
@@ -47,15 +47,10 @@ export class ServicosComponent implements OnInit {
         this.listaServicos = servicos
       },
       (error: any) => {
-        // Lidar com erros, se houver algum
         console.error('Erro ao carregar serviços:', error);
       }
     );
   }
-
-  carregarAgendamentos(): void {
-  }
-
 
   trocarPerfilCliente(){
     this.perfil = 0;
@@ -67,7 +62,4 @@ export class ServicosComponent implements OnInit {
     this.ngOnInit();
   }
 
-  abrirTelaAgendamentos() {
-    
-  }
 }

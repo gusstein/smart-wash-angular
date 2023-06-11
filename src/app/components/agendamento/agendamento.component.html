@@ -14,6 +14,14 @@
                   </option>
                 </select>
               </div>
+              <div class="box-input row px-2">
+                <label style="font-size: .87rem; color: #0A1F44;">Adicione seu veiculo</label>
+                <select class="form-control" [(ngModel)]="veiculoSelecionado">
+                  <option *ngFor="let veiculo of listaVeiculos" [ngValue]="veiculo">
+                    {{ veiculo.modelo }}
+                  </option>
+                </select>
+              </div>
               <div>
                 <button id="submit" type="submit" class="botao" (click)="adicionarServico()"><i></i>ADICIONAR</button>
               </div>
@@ -31,7 +39,7 @@
       </div>
       <div *ngIf="servicos.length > 0" class="box-input row px-2 botoes">
         <button style="margin-right: 10px;" class="botao salvar" (click)="salvarAgendamento()">Criar Agendamento</button>
-        <button class="botao salvar" (click)="salvarAgendamento()">Cancelar Agendamento</button>
+        <button class="botao salvar" (click)="cancelarAgendamento()">Cancelar Agendamento</button>
       </div>
 </body>
 

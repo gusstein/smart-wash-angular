@@ -21,7 +21,9 @@ export class AgendamentoComponent implements OnInit{
   servicosAdicionados: Servico[] = [];
   veiculoAdicionados: Veiculo[] = [];
   servicoSelecionado: any;
+  dataEntrada: Date = new Date(); 
   veiculoSelecionado: any;
+  erro: boolean = false;
 
   constructor(private agendamentoService: AgendamentoService, private servicoService: ServicoService, private veiculoService: VeiculoService, private funcioanrioService: FuncionarioService) {
 
@@ -73,6 +75,7 @@ export class AgendamentoComponent implements OnInit{
       this.veiculoAdicionados.push(this.veiculoSelecionado);
       this.servicoSelecionado = null;
       this.veiculoSelecionado = null;
+      this.dataEntrada = this.dataEntrada;
     }
   }
 
@@ -93,23 +96,34 @@ export class AgendamentoComponent implements OnInit{
   }
 
   salvarAgendamento(): void {
-    const agendamento: Agendamento = {
-      id: 0,
+    const agendamento = {
       veiculos: this.veiculoAdicionados,
       servicos: this.servicosAdicionados,
       funcionarios: this.listaFuncionariosDisponiveis.filter(funcionario => funcionario),
       preco: this.calcularValorTotalServicos(),
-      dataEntrada: new Date(), 
+      dataEntrada: this.dataEntrada, 
       dataSaida: new Date() 
     };
+
+    this.servicosAdicionados = [];
+    this.veiculoAdicionados = [];
+    this.servicoSelecionado = null;
+    this.veiculoSelecionado = null;
   
     this.agendamentoService.salvarAgendamento(agendamento).subscribe(
       (resposta: Agendamento) => {
         console.log('Agendamento salvo com sucesso:', resposta);
+
+
       },
       (error: any) => {
 
         console.error('Erro ao salvar agendamento:', error);
+        this.erro = true;
+
+        setTimeout(() => {
+          this.erro = false;
+        }, 5000);
       }
     );
   }

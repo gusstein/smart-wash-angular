@@ -30,6 +30,7 @@ export class AgendamentoService {
       return this.atualizarAgendamento(agendamento);
     }
     // console.log('create');
+    console.log(agendamento);
     return this.criarAgendamento(agendamento);
   }
 

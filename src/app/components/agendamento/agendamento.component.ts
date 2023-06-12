@@ -7,7 +7,7 @@ import { AgendamentoService } from 'src/app/services/agendamento.service';
 import { FuncionarioService } from 'src/app/services/funcionario.service';
 import { ServicoService } from 'src/app/services/servico.service';
 import { VeiculoService } from 'src/app/services/veiculo.service';
-
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-agendamento',
@@ -19,6 +19,7 @@ export class AgendamentoComponent implements OnInit{
   listaVeiculos: Veiculo[] = [];
   listaFuncionariosDisponiveis: Funcionario[] = [];
   servicosAdicionados: Servico[] = [];
+  veiculoAdicionados: Veiculo[] = [];
   servicoSelecionado: any;
   veiculoSelecionado: any;
 
@@ -38,7 +39,6 @@ export class AgendamentoComponent implements OnInit{
         this.listaVeiculos = servicos
       },
       (error: any) => {
-        // Lidar com erros, se houver algum
         console.error('Erro ao carregar serviços:', error);
       }
     );
@@ -51,7 +51,6 @@ export class AgendamentoComponent implements OnInit{
         console.log(this.listaFuncionariosDisponiveis);
       },
       (error: any) => {
-        // Lidar com erros, se houver algum
         console.error('Erro ao carregar serviços:', error);
       }
     );
@@ -63,7 +62,6 @@ export class AgendamentoComponent implements OnInit{
         this.servicos = servicos
       },
       (error: any) => {
-        // Lidar com erros, se houver algum
         console.error('Erro ao carregar serviços:', error);
       }
     );
@@ -72,7 +70,9 @@ export class AgendamentoComponent implements OnInit{
   adicionarServico(): void {
     if (this.servicoSelecionado) {
       this.servicosAdicionados.push(this.servicoSelecionado);
-      this.servicoSelecionado = null; // Limpa a seleção do <select>
+      this.veiculoAdicionados.push(this.veiculoSelecionado);
+      this.servicoSelecionado = null;
+      this.veiculoSelecionado = null;
     }
   }
 
@@ -94,28 +94,28 @@ export class AgendamentoComponent implements OnInit{
 
   salvarAgendamento(): void {
     const agendamento: Agendamento = {
-      id: 0, // O ID será gerado pelo servidor
-      veiculos: this.listaVeiculos.filter(veiculo => veiculo),
+      id: 0,
+      veiculos: this.veiculoAdicionados,
       servicos: this.servicosAdicionados,
       funcionarios: this.listaFuncionariosDisponiveis.filter(funcionario => funcionario),
       preco: this.calcularValorTotalServicos(),
-      dataEntrada: new Date(), // Defina a data de entrada conforme necessário
-      dataSaida: new Date() // Defina a data de saída conforme necessário
+      dataEntrada: new Date(), 
+      dataSaida: new Date() 
     };
   
     this.agendamentoService.salvarAgendamento(agendamento).subscribe(
       (resposta: Agendamento) => {
         console.log('Agendamento salvo com sucesso:', resposta);
-        // Realize as ações necessárias após o salvamento do agendamento
       },
       (error: any) => {
+
         console.error('Erro ao salvar agendamento:', error);
-        // Lidar com erros, se houver algum
       }
     );
   }
 
   cancelarAgendamento() {
     this.servicosAdicionados = [];
+    this.veiculoAdicionados = [];
   }
 }

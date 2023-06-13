@@ -36,6 +36,12 @@ body {
   cursor: pointer;
 }
 
+.salvar {
+  display: block;
+  margin-top: 20px;
+  text-align: center;
+}
+
 .card {
   margin-top: 20px;
   padding: 10px;
@@ -57,11 +63,7 @@ body {
   margin-left: 10px;
 }
 
-.salvar {
-  display: block;
-  margin-top: 20px;
-  text-align: center;
-}
+
 
 .botoes {
   justify-content: center;

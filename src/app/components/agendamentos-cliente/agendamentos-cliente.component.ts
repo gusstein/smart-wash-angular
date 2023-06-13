@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Agendamento } from 'src/app/model/agendamento';
+import { Servico } from 'src/app/model/servico';
 import { AgendamentoService } from 'src/app/services/agendamento.service';
 
 @Component({
@@ -11,6 +12,7 @@ export class AgendamentosClienteComponent {
 titulo: string = "Seus agendamentos"
 
 listaAgendamentos: Agendamento[] = [];
+precoTotal: string = ''
 
 constructor(private agendamentoService: AgendamentoService) {
 
@@ -19,6 +21,7 @@ constructor(private agendamentoService: AgendamentoService) {
 ngOnInit(): void {
 
   this.carregarAgendamentos();
+  this.calculaPrecoTotal();
 
 }
 
@@ -35,6 +38,12 @@ carregarAgendamentos(): void {
 }
 
 
+calculaPrecoTotal(): void {
+  this.listaAgendamentos.forEach((agendamento: Agendamento) => {
+    const precoTotal = agendamento.servicos.reduce((total: number, servico: Servico) => total + servico.preco, 0);
+    this.precoTotal = precoTotal.toString();
+  });
+}
 
 
 }

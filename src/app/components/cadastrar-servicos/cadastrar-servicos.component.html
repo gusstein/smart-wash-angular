@@ -3,7 +3,7 @@
     <div class="modal-dialog modal-lg modal-dialog-centered">
       <div class="modal-content" style="padding: 20px;">
         <div class="modal-header">
-          <h1 class="modal-title" id="exampleModalLongTitle" style="color: #000;">Adicionar serviço</h1>
+          <h1 class="modal-title" id="exampleModalLongTitle" style="color: #000; font-family: 'Courier New', Courier, monospace; font-weight: bold;">Adicionar serviço</h1>
         </div>
         <div class="modal-body">
           <div class="box-input row px-2">
@@ -12,11 +12,11 @@
           </div>
           <div class="box-input row px-2">
             <label style="font-size: .87rem; color: #0A1F44;">Valor do serviço (R$)</label>
-            <input name="valor" id="valor" type="number" [(ngModel)]="preco" required placeholder="Valor do serviço (R$)">
+            <input name="valor" id="valor" type="number" step="10" [(ngModel)]="preco" required placeholder="Valor do serviço (R$)">
           </div>
           <div class="box-input row px-2">
             <label style="font-size: .87rem; color: #0A1F44;">Duração do serviço (minutos)</label>
-            <input name="duracao" id="duracao" type="number" [(ngModel)]="duracaoServico" required placeholder="Duração do serviço (minutos)">
+            <input name="duracao" id="duracao" type="number" step="10" [(ngModel)]="duracaoServico" required placeholder="Duração do serviço (minutos)">
           </div>
           <div class="box-input row px-2">
             <label style="font-size: .87rem; color: #0A1F44;">Descrição</label>
@@ -36,6 +36,6 @@
     <p>Duração: {{ servico.duracao }} minutos</p>
   </div>
   <div *ngIf="servicos.length > 0" class="box-input row px-2">
-    <button class="botao salvar" (click)="salvarServicos()">Salvar</button>
+    <button  style="background-color: #0a9f08; color: white;" class="botao salvar" (click)="salvarServicos()">Salvar</button>
   </div>
 </body>

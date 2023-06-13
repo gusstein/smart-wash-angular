@@ -3,11 +3,11 @@
         <div class="modal-dialog modal-lg modal-dialog-centered">
           <div class="modal-content" style="padding: 20px;">
             <div class="modal-header">
-              <h1 class="modal-title" id="exampleModalLongTitle" style="color: #000;">Realizar Agendamentos</h1>
+              <h1 class="modal-title" id="exampleModalLongTitle" style="color: #000; font-family: 'Courier New', Courier, monospace; font-weight: bold;">Realizar Agendamentos</h1>
             </div>
             <div class="modal-body">
               <div class="box-input row px-2">
-                <label style="font-size: .87rem; color: #0A1F44;">Adicione serviços para o seu agendamento</label>
+                <label style="font-size: .87rem; color: #0A1F44; ">Adicione serviços para o seu agendamento</label>
                 <select class="form-control" [(ngModel)]="servicoSelecionado">
                   <option *ngFor="let servico of servicos" [ngValue]="servico">
                     {{ servico.nome }}
@@ -21,6 +21,7 @@
                     {{ veiculo.modelo }}
                   </option>
                 </select>
+                <button class="botao salva" style="background-color: #0741ad; color: white;  margin-left: 10px;" [routerLink]="['/cadastrar-veiculos']">Cadastre seu Veiculo</button>
               </div>
               <div class="box-input row px-2">
                 <label style="font-size: .87rem; color: #0A1F44;">Adicione a data e hora</label>
@@ -35,15 +36,16 @@
       </div>
       
       <div *ngFor="let servico of servicosAdicionados" class="card">
-        <h3>{{ servico.nome }}</h3>
+        <h3>{{ servico.nome }} -  R${{ servico.preco }} - {{ servico.duracao }} minutos </h3>
       </div>
       <div class="valores">
         <p>Valor total: R$ {{ calcularValorTotalServicos() }}</p>
         <p>Duração total: {{ calcularDuracaoTotalServicos() }} minutos</p>
       </div>
       <div *ngIf="servicos.length > 0" class="box-input row px-2 botoes">
-        <button style="margin-right: 10px;" class="botao salvar" (click)="salvarAgendamento()">Criar Agendamento</button>
-        <button class="botao salvar" (click)="cancelarAgendamento()">Cancelar Agendamento</button>
+        <button  style="background-color: #0a9f08; color: white; margin-right: 10px; " class="botao salvar" (click)="salvarAgendamento()">Criar Agendamento</button>
+        <button style="background-color: #ff0000; color: white;" class="botao salvar" (click)="cancelarAgendamento()">Cancelar Agendamento</button>
+        <button  class="botao salvar"style="background-color: #0741ad; color: white; margin-left: 10px;" for="client-profile"  type="radio" id="client-profile" name="profile" [routerLink]="['/meus-agendamentos']">Agendamentos</button>
       </div>
 </body>
 

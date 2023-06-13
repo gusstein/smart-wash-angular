@@ -1,8 +1,13 @@
 <body style="background-color: #2196f3">
-    <h1 style="background-color: rgba(255, 255, 255, 0.31); border-radius: 90%;align-items: center;">{{ titulo }}</h1>
-    <h2>Agendamentos</h2>
+    <h1 style="background-color: rgba(255, 255, 255, 0.31); border-radius: 90%;align-items: center;  font-family: 'Courier New', Courier, monospace; font-weight: bold;">{{ titulo }}</h1>
+    <h2 style="font-family: 'Courier New', Courier, monospace; font-weight: bold;">Agendamentos</h2>
     <ul>
-        <li *ngFor="let agendamento of listaAgendamentos">{{ agendamento.dataEntrada | date:'dd/MM/yyyy HH:mm' }}
-            - R${{ agendamento.preco }} </li>
+      <li *ngFor="let agendamento of listaAgendamentos">
+        {{ agendamento.dataEntrada | date:'dd/MM/yyyy HH:mm' }} - R${{ precoTotal }}
+        <ul>
+          <li *ngFor="let servico of agendamento.servicos">{{ servico.nome }} - R${{ servico.preco }}</li>
+        </ul>
+      </li>
     </ul>
-</body>
+  </body>
+  

@@ -30,7 +30,7 @@ export class VeiculoService {
       return this.atualizarVeiculo(veiculo);
     }
     // console.log('create');
-    return this.atualizarVeiculo(veiculo);
+    return this.criarVeiculo(veiculo);
   }
 
   private criarVeiculo(veiculo: Partial<Veiculo>) {

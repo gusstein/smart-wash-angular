@@ -10,6 +10,7 @@ import { CadastrarServicosComponent } from './components/cadastrar-servicos/cada
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AgendamentosClienteComponent } from './components/agendamentos-cliente/agendamentos-cliente.component';
+import { CadastrarVeiculoComponent } from './components/cadastrar-veiculo/cadastrar-veiculo.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { AgendamentosClienteComponent } from './components/agendamentos-cliente/
     ServicosComponent,
     CadastrarServicosComponent,
     AgendamentosClienteComponent,
+    CadastrarVeiculoComponent
 
   ],
   imports: [

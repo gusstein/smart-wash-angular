@@ -1,6 +1,9 @@
 # SmartWashAngular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.5.
+Use nvm for manage version of node.js in https://github.com/coreybutler/nvm-windows/releases
+
+Run `npm install` to install node in principal directory of project
 
 ## Development server
 

@@ -1,0 +1,22 @@
+<div class="container" style="background-color: #2196f3">
+    <h1 style="font-family: 'Courier New', Courier, monospace; font-weight: bold;">Forma de pagamento</h1>
+    <div class="form-group">
+      <label for="nome_cartao">Nome no Cartão:</label>
+      <input type="text" class="form-control" id="nome_cartao" name="nome_cartao" required>
+    </div>
+    <div class="form-group">
+      <label for="numero_cartao">Número do Cartão:</label>
+      <input type="text" class="form-control" id="numero_cartao" name="numero_cartao" required>
+    </div>
+    <div class="form-group">
+      <label for="validade_cartao">Validade do Cartão:</label>
+      <input type="text" class="form-control" id="validade_cartao" name="validade_cartao" required>
+    </div>
+    <div class="form-group">
+      <label for="cvv_cartao">CVV do Cartão:</label>
+      <input type="text" class="form-control" id="cvv_cartao" name="cvv_cartao" required>
+    </div>
+    <button class="btn btn-primary" style="background-color: #0a9f08; color: white; margin-right: 10px;" (click)="efetuarPagamento()">Pagar</button>
+    <button class="btn btn-primary" style="background-color: #0741ad; color: white; margin-right: 10px;" [routerLink]="['/meus-agendamentos']">Voltar</button>
+  </div>
+  

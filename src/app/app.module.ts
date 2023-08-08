@@ -11,6 +11,10 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AgendamentosClienteComponent } from './components/agendamentos-cliente/agendamentos-cliente.component';
 import { CadastrarVeiculoComponent } from './components/cadastrar-veiculo/cadastrar-veiculo.component';
+import { LoginComponent } from './components/login/login.component';
+import { CadastroUsuarioComponent } from './components/cadastro-usuario/cadastro-usuario.component';
+import { PagamentoAgendamentoComponent } from './components/pagamento-agendamento/pagamento-agendamento.component';
+import { RelatorioAgendamentosComponent } from './components/relatorio-agendamentos/relatorio-agendamentos.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +23,11 @@ import { CadastrarVeiculoComponent } from './components/cadastrar-veiculo/cadast
     ServicosComponent,
     CadastrarServicosComponent,
     AgendamentosClienteComponent,
-    CadastrarVeiculoComponent
+    CadastrarVeiculoComponent,
+    LoginComponent,
+    CadastroUsuarioComponent,
+    PagamentoAgendamentoComponent,
+    RelatorioAgendamentosComponent
 
   ],
   imports: [

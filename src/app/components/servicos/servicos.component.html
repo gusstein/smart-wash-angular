@@ -2,6 +2,7 @@
     <div class="troca-perfil perfil">
         <label style="background-color: #0741ad; color: white;" for="client-profile"  type="radio" id="client-profile" name="profile"  (click)="trocarPerfilCliente()">Cliente</label>
         <label style="background-color: #0741ad; color: white;" for="employee-profile" type="radio" id="employee-profile" name="profile"  (click)="trocarPerfilFuncionario()">Funcionário</label>
+        <label class="botao salvar" style="background-color: #0741ad; color: white;" for="client-profile"  type="radio" id="client-profile" name="profile" [routerLink]="['']">Sair</label>
     </div>
     <h1 style="background-color: rgba(255, 255, 255, 0.31); border-radius: 90%; font-family: 'Courier New', Courier, monospace; font-weight: bold;">{{ titulo }}</h1>
     <div *ngIf="perfil == 0" >

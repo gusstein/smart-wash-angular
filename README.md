@@ -1,6 +1,9 @@
 # SmartWashAngular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.5.
+Use nvm for manage version of node.js in https://github.com/coreybutler/nvm-windows/releases
+
+Run `npm install` to install node in principal directory of project
 
 ## Development server
 
@@ -12,7 +15,7 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Run `npm run start` to build the project. The build artifacts will be stored in the `dist/` directory.
 
 ## Running unit tests
 

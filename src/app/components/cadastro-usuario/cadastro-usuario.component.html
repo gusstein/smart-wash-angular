@@ -2,15 +2,19 @@
     <h1 style="font-family: 'Courier New', Courier, monospace; font-weight: bold;">Cadastro</h1>
     <div class="form-group">
       <label for="email">E-mail:</label>
-      <input type="text" class="form-control" id="email" name="email" required>
+      <input type="text" class="form-control" [(ngModel)]="usuario.email" id="email" name="email" required>
     </div>
     <div class="form-group">
-        <label for="usuario">Usuário</label>
-        <input type="text" class="form-control" id="usuario" name="email" required>
-      </div>
+        <label for="usuario">Nome</label>
+        <input type="text" class="form-control" [(ngModel)]="usuario.nome" id="nome" name="nome" required>
+    </div>
+    <div class="form-group">
+      <label for="usuario">CPF</label>
+      <input type="text" class="form-control" [(ngModel)]="usuario.cpf" id="nome" name="nome" required>
+  </div>
     <div class="form-group">
         <label for="senha">Senha:</label>
-        <input type="text" class="form-control" id="senha" name="senha" required>
+        <input type="text" class="form-control" [(ngModel)]="usuario.senha" id="senha" name="senha" required>
     </div>
     <div class="form-group">
         <label for="senha">Confirmar senha:</label>

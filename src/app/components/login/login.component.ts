@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Usuario } from 'src/app/model/usuario';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-login',
@@ -6,24 +8,32 @@ import { Component } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  loginLiberado: boolean = false
+  usuario: Usuario = {
+    id: 0,
+    nome: '',
+    cpf: '',
+    senha: '',
+    email: ''
+  };
 
+  constructor(private usuarioService: UsuarioService) {}
   
-  realizarLogin(): void {
-    // this.veiculoService.salvarVeiculo(this.veiculo).subscribe(
-    //   (veiculoSalvo: Veiculo) => {
-    //     console.log(`Veículo ${veiculoSalvo.modelo} salvo com sucesso!`);
-    //     this.veiculo = {
-    //       id: 0,
-    //       modelo: '',
-    //       marca: '',s
-    //       ano: '',
-    //       placa: '',
-    //       carroceria: ''
-    //     };
-    //   },
-    //   (error: any) => {
-    //     console.error('Erro ao salvar veículo:', error);
-    //   }
-    // );
+  login(): void {
+    this.usuarioService.login(this.usuario).subscribe(
+      (mensagem: string) => {
+        this.loginLiberado = mensagem === "1" ? true : false;
+        this.usuario = {
+          id: 0,
+          nome: '',
+          cpf: '',
+          senha: '',
+          email: ''
+        };
+      },
+      (error: any) => {
+        console.error('Credenciais erradas', error);
+      }
+    );
   }
 }

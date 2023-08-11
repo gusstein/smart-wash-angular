@@ -9,6 +9,10 @@ import { Usuario } from '../model/usuario';
 export class UsuarioService {
 
   private readonly API = 'api/usuarios'
+  
+  private readonly LOGIN = '/login'
+
+  private readonly REGISTRAR = '/registrar'
 
   constructor(private httpClient: HttpClient) { }
 
@@ -33,8 +37,8 @@ export class UsuarioService {
     return this.atualizarUsuario(usuario);
   }
 
-  private criarUsuario(usuario: Partial<Usuario>) {
-    return this.httpClient.post<Usuario>(this.API, usuario).pipe(first());
+  public criarUsuario(usuario: Partial<Usuario>) {
+    return this.httpClient.post<Usuario>(`${this.API}/${this.REGISTRAR}`, usuario).pipe(first());
   }
 
   private atualizarUsuario(usuario: Partial<Usuario>) {
@@ -45,5 +49,8 @@ export class UsuarioService {
     return this.httpClient.delete(`${this.API}/${id}`).pipe(first());
   }
 
+  public login(usuario: Partial<Usuario>) {
+    return this.httpClient.post<string>(`${this.API}/${this.LOGIN}`, usuario).pipe(first());
+  }
 
 }

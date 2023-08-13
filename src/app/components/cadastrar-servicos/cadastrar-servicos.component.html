@@ -1,41 +1,46 @@
-<body style="background-color: #2196f3"> 
-  <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<body>
+  <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
-      <div class="modal-content" style="padding: 20px;">
+      <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title" id="exampleModalLongTitle" style="color: #000; font-family: 'Courier New', Courier, monospace; font-weight: bold;">Adicionar serviço</h1>
+          <h1 class="modal-title" id="exampleModalLongTitle">Adicionar serviço</h1>
         </div>
         <div class="modal-body">
           <div class="box-input row px-2">
-            <label style="font-size: .87rem; color: #0A1F44;">Nome do serviço</label>
-            <input name="nome" id="nome" type="text" [(ngModel)]="nomeServico" required placeholder="Nome do serviço">
+            <label>Nome do serviço</label>
+            <input name="nome" id="nome" type="text" [(ngModel)]="nomeServico" required
+              placeholder="Nome do serviço">
           </div>
           <div class="box-input row px-2">
-            <label style="font-size: .87rem; color: #0A1F44;">Valor do serviço (R$)</label>
-            <input name="valor" id="valor" type="number" step="10" [(ngModel)]="preco" required placeholder="Valor do serviço (R$)">
+            <label>Valor do serviço (R$)</label>
+            <input name="valor" id="valor" type="number" step="10" [(ngModel)]="preco" required
+              placeholder="Valor do serviço (R$)">
           </div>
           <div class="box-input row px-2">
-            <label style="font-size: .87rem; color: #0A1F44;">Duração do serviço (minutos)</label>
-            <input name="duracao" id="duracao" type="number" step="10" [(ngModel)]="duracaoServico" required placeholder="Duração do serviço (minutos)">
+            <label>Duração do serviço (minutos)</label>
+            <input name="duracao" id="duracao" type="number" step="10" [(ngModel)]="duracaoServico" required
+              placeholder="Duração do serviço (minutos)">
           </div>
           <div class="box-input row px-2">
-            <label style="font-size: .87rem; color: #0A1F44;">Descrição</label>
-            <input name="descricao" id="descricao" type="text" [(ngModel)]="descricaoServico" required placeholder="Descrição do serviço">
+            <label>Descrição</label>
+            <input name="descricao" id="descricao" type="text" [(ngModel)]="descricaoServico" required
+              placeholder="Descrição do serviço">
           </div>
-          <div>
-            <button id="submit" type="submit" class="botao" (click)="adicionarServico()"><i></i>ADICIONAR</button>
+          <div class="salvar">
+            <button class="botao" (click)="adicionarServico()">ADICIONAR</button>
           </div>
         </div>
       </div>
     </div>
   </div>
-  
+
   <div *ngFor="let servico of servicos" class="card">
     <h3>{{ servico.nome }}</h3>
     <p>Valor: R$ {{ servico.preco }}</p>
     <p>Duração: {{ servico.duracao }} minutos</p>
   </div>
-  <div *ngIf="servicos.length > 0" class="box-input row px-2">
-    <button  style="background-color: #0a9f08; color: white;" class="botao salvar" (click)="salvarServicos()">Salvar</button>
+  <div *ngIf="servicos.length > 0" class="salvar">
+    <button class="botao" (click)="salvarServicos()">Salvar</button>
   </div>
 </body>

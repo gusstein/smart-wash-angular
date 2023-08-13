@@ -1,34 +1,40 @@
-<body style="background-color: #2196f3">
-    <div class="troca-perfil perfil">
-        <label style="background-color: #0741ad; color: white;" for="client-profile"  type="radio" id="client-profile" name="profile"  (click)="trocarPerfilCliente()">Cliente</label>
-        <label style="background-color: #0741ad; color: white;" for="employee-profile" type="radio" id="employee-profile" name="profile"  (click)="trocarPerfilFuncionario()">Funcionário</label>
-        <label class="botao salvar" style="background-color: #0741ad; color: white;" for="client-profile"  type="radio" id="client-profile" name="profile" [routerLink]="['']">Sair</label>
+<body>
+    <div class="header">
+      <h1>AGENDAMENTO DE SERVIÇOS</h1>
     </div>
-    <h1 style="background-color: rgba(255, 255, 255, 0.31); border-radius: 90%; font-family: 'Courier New', Courier, monospace; font-weight: bold;">{{ titulo }}</h1>
-    <div *ngIf="perfil == 0" >
-        <h2 style="font-family: 'Courier New', Courier, monospace; font-weight: bold;">Serviços disponíveis</h2>
-        <ul>
-            <li *ngFor="let servico of listaServicos">
-                <b>Serviço:</b> {{ servico.nome }} - <b>Preço:</b> R${{ servico.preco }} - <b>Duração:</b> {{ servico.duracao }} minutos <br>
-                <b>Descrição: </b> <i>{{ servico.descricao }}</i>
+    <div class="profile-switch">
+      <button class="botao salvar" for="client-profile" type="radio" id="client-profile" name="profile"
+        [routerLink]="['/cadastrar-veiculos']">Cadastrar Veículo</button>
+      <button class="botao salvar" for="client-profile" type="radio" id="client-profile" name="profile"
+        [routerLink]="['/meus-agendamentos']">Meus Agendamentos</button>
+      <button class="botao" [routerLink]="['/meus-agendamentos']">Agendamentos</button>
+  </div>
 
-              </li>
-            
-            <div class="troca-perfil add-servico">
-                <button  class="botao salvar" style="background-color: #0741ad; color: white;" for="client-profile"  type="radio" id="client-profile" name="profile" [routerLink]="['/cadastrar-veiculos']">Cadastrar Veiculo</button>
-                <button  class="botao salvar" style="background-color: #0741ad; color: white;  margin-left: 10px;" for="client-profile"  type="radio" id="client-profile" name="profile" [routerLink]="['/realizar-agendamento']">Realizar agendamento de serviços</button>
-                <button  class="botao salvar"style="background-color: #0741ad; color: white; margin-left: 10px;" for="client-profile"  type="radio" id="client-profile" name="profile" [routerLink]="['/meus-agendamentos']">Agendamentos</button>
-            </div>
-        </ul>
-    </div>
-    <div *ngIf="perfil == 1" >
-        <h2>Serviços cadastrados</h2>
+  
+    <div class="content">''
+      <h2>{{ titulo }}</h2>
+      <div *ngIf="perfil == 0">
+        <h3>Serviços disponíveis</h3>
         <ul>
-            <li *ngFor="let servico of listaServicos">{{ servico.nome }}</li>
-            <div class="troca-perfil add-servico">
-                <button class="botao salvar" style="background-color: #0741ad; color: white;" for="client-profile"  type="radio" id="client-profile" name="profile" [routerLink]="['/cadastrar-servicos']">cadastrar Serviços</button>
-            </div>
+          <li *ngFor="let servico of listaServicos">
+            <b>Serviço:</b> {{ servico.nome }} - <b>Preço:</b> R${{ servico.preco }} - <b>Duração:</b> {{ servico.duracao }} minutos
+            <br>
+            <b>Descrição: </b> <i>{{ servico.descricao }}</i>
+          </li>
         </ul>
-    </div>
 
-</body>
+      </div>
+  
+      <div *ngIf="perfil == 1">
+        <h3>Serviços cadastrados</h3>
+        <ul>
+          <li *ngFor="let servico of listaServicos">{{ servico.nome }}</li>
+        </ul>
+        <div class="add-service-btns">
+          <button class="botao salvar" for="client-profile" type="radio" id="client-profile" name="profile"
+            [routerLink]="['/cadastrar-servicos']">Cadastrar Serviços</button>
+        </div>
+      </div>
+    </div>
+  </body>
+  

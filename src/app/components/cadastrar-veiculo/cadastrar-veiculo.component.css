@@ -1,67 +1,71 @@
+.body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+}
+
 .container {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 20px;
-  }
-  
-  .container h1 {
-    margin-bottom: 20px;
-  }
-  
-  .form-group {
-    margin-bottom: 20px;
-  }
-  
-  .form-group label {
-    font-size: 0.87rem;
-    color: #0A1F44;
-  }
-  
-  .form-control {
-    width: 100%;
-    padding: 5px;
-    border: 1px solid #e0e0e0;
-    border-radius: 4px;
-  }
-  
-  .btn-primary {
-    padding: 10px 20px;
-    background-color: #e0e0e0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .btn-primary:hover {
-    background-color: #d0d0d0;
-  }
-  
-  .btn-primary:active {
-    background-color: #c0c0c0;
-  }
-  
-  .btn-primary:focus {
-    outline: none;
-  }
-  
-  .box-input.row.px-2 {
-    display: flex;
-    align-items: center;
-  }
-  
-  .box-input.row.px-2 label {
-    flex: 1;
-  }
-  
-  .box-input.row.px-2 input[type="text"],
-  .box-input.row.px-2 input[type="number"] {
-    flex: 2;
-    margin-left: 10px;
-  }
-  
-  .salvar {
-    display: block;
-    margin-top: 20px;
-    text-align: center;
-  }
-  
+  padding: 20px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  margin: 20px;
+}
+
+.container h1 {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #0741ad;
+} 
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-size: 0.87rem;
+  color: #0A1F44;
+  font-weight: bold;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+}
+
+.btn-primary {
+  padding: 10px 20px;
+  background-color: #0a9f08;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: white;
+  margin-right: 10px;
+}
+
+.btn-secondary {
+  padding: 10px 20px;
+  background-color: #0741ad;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: white;
+  margin-left: 10px;
+}
+
+.btn-primary:hover, .btn-secondary:hover {
+  background-color: #0a8e07;
+}
+
+.btn-primary:active, .btn-secondary:active {
+  background-color: #0a7c06;
+}
+
+.btn-primary:focus, .btn-secondary:focus {
+  outline: none;
+}

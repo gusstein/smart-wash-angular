@@ -1,14 +1,17 @@
-<div class="container" style="background-color: #2196f3">
-    <h1 style="font-family: 'Courier New', Courier, monospace; font-weight: bold;">Realizar login</h1>
+<body>
+  <div class="container">
+    <h1>Realizar Login</h1>
     <div class="form-group">
-      <label for="usuario">Usuario:</label>
+      <label for="usuario">Usuário:</label>
       <input type="text" class="form-control" [(ngModel)]="usuario.email" id="usuario" name="usuario" required>
     </div>
     <div class="form-group">
-        <label for="senha">Senha:</label>
-        <input type="text" class="form-control" [(ngModel)]="usuario.senha" id="senha" name="senha" required>
+      <label for="senha">Senha:</label>
+      <input type="password" class="form-control" [(ngModel)]="usuario.senha" id="senha" name="senha" required>
     </div>
-    <button class="btn btn-primary" style="background-color: #0a9f08; color: white; margin-right: 10px;" for="client-profile"  type="radio" id="client-profile" name="profile" [routerLink]="['/servicos']" (click)="login()">Realizar login</button>
-    <button class="btn btn-primary" style="background-color: #0741ad; color: white; margin-right: 10px;" for="client-profile"  type="radio" id="client-profile" name="profile" [routerLink]="['/cadastrar-usuario']">Registrar-se</button>
+    <div class="btn-container">
+      <button class="btn btn-primary" [routerLink]="['/servicos']" (click)="login()">Realizar login</button>
+      <button class="btn btn-secondary" [routerLink]="['/cadastrar-usuario']">Registrar-se</button>
+    </div>
   </div>
-  
+</body>

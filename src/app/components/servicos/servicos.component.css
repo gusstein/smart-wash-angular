@@ -1,76 +1,86 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 20px;
-  }
-  
-h1 {
-  text-align: center;
+.body{
+font-family: Arial, sans-serif;
+margin: 0;
+padding: 0;
+background-color: #f0f0f0;
 }
 
-.perfil {
-  justify-content: end;
+.header {
+color: white;
+border-radius: 5px;
+text-align: center;
+padding: 20px;
+border-color: black;
+border-radius: 10px;
 }
 
-.troca-perfil {
-  display: flex;
-  margin-bottom: 20px;
+
+
+.profile-switch {
+display: flex;
+justify-content: space-between;
+background-color: #0741ad;
+padding: 10px;
+border-radius: 5px;
+margin: 20px;
 }
 
-.troca-perfil input[type="radio"] {
-  display: none;
-}
-
-.troca-perfil label {
-  cursor: pointer;
-  margin: 0 10px;
-  padding: 5px 10px;
-  background-color: #e0e0e0;
-  border-radius: 4px;
-}
-
-.troca-perfil input[type="radio"]:checked + label {
-  background-color: #a0a0a0;
-  color: white;
+.profile-switch label {
+background-color: #0741ad;
+color: white;
+padding: 5px 10px;
+border-radius: 3px;
+cursor: pointer;
 }
 
 .content {
-  display: none;
+padding: 20px;
+background-color: white;
+border-radius: 5px;
+box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+margin: 20px;
 }
 
-.content h2 {
-  margin-bottom: 10px;
+h1 {
+font-family: 'Courier New', Courier, monospace;
+font-weight: bold;
+text-align: center;
+margin-bottom: 20px;
+color: black;
+}
+
+h2 {
+font-family: 'Courier New', Courier, monospace;
+font-weight: bold;
+margin-top: 20px;
 }
 
 ul {
-  padding: 0;
+list-style-type: none;
+padding-left: 0;
+margin-top: 10px;
 }
 
 li {
-  margin-bottom: 10px;
-  padding: 10px;
-  border: 1px solid #e0e0e0;
-  border-radius: 4px;
+margin-bottom: 10px;
+padding: 10px;
+border: 1px solid #e0e0e0;
+border-radius: 4px;
+background-color: #f8f8f8;
 }
 
-li:last-child {
-  margin-bottom: 0;
+.add-service-btns {
+display: flex;
+justify-content: center;
+margin-top: 20px;
 }
 
-.add-servico {
-  justify-content: center;
-}
-
-.botao {
-  padding: 10px 20px;
-  background-color: #e0e0e0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.salvar {
-  display: block;
-  margin-top: 20px;
-  text-align: center;
+.botao.salvar {
+background-color: #0741ad;
+color: white;
+padding: 5px 20px;
+border: none;
+border-radius: 3px;
+cursor: pointer;
+margin: 0 10px;
 }

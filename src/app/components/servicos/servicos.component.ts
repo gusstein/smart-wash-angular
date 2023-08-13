@@ -33,7 +33,8 @@ export class ServicosComponent implements OnInit {
   }
 
   verificarPerfil(): void {
-    if (this.perfil === 1) {
+    if (localStorage.getItem("empresa") == 'true') {
+      this.perfil = 1;
       this.titulo = 'LISTA DE SERVIÇOS';
     } else {
       this.titulo = 'SERVIÇOS AUTOMOTIVOS';

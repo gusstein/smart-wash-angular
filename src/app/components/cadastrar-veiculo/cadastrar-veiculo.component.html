@@ -1,5 +1,14 @@
 <div class="container">
   <h1>Cadastrar Veículo</h1>
+  <div class="profile-switch">
+    <button class="botao salvar" for="client-profile" type="radio" id="client-profile" name="profile"
+      [routerLink]="['/realizar-agendamento']">AGENDAR SERVIÇO</button>
+    <button class="botao salvar" for="client-profile" type="radio" id="client-profile" name="profile"
+    [routerLink]="['/servicos']">SERVIÇOS</button>
+    <button class="botao salvar" for="client-profile" type="radio" id="client-profile" name="profile"
+      [routerLink]="['/meus-agendamentos']">MEUS AGENDAMENTOS</button>
+  </div>
+  
   <div class="form-group">
     <label for="marca">Marca:</label>
     <input type="text" class="form-control" id="marca" [(ngModel)]="veiculo.marca" name="marca" required>

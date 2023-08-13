@@ -69,3 +69,30 @@
 .btn-primary:focus, .btn-secondary:focus {
   outline: none;
 }
+
+.profile-switch {
+  display: flex;
+  justify-content: space-between;
+  background-color: #0741ad;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 20px;
+  }
+  
+  .profile-switch label {
+  background-color: #0741ad;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+  }
+
+  .botao.salvar {
+    background-color: #0741ad;
+    color: white;
+    padding: 5px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin: 0 10px;
+    }

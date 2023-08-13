@@ -10,7 +10,7 @@
       <input type="password" class="form-control" [(ngModel)]="usuario.senha" id="senha" name="senha" required>
     </div>
     <div class="btn-container">
-      <button class="btn btn-primary" [routerLink]="['/servicos']" (click)="login()">Realizar login</button>
+      <button class="btn btn-primary" (click)="login()">Realizar login</button>
       <button class="btn btn-secondary" [routerLink]="['/cadastrar-usuario']">Registrar-se</button>
     </div>
   </div>

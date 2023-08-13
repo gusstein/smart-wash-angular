@@ -1,5 +1,6 @@
-<div class="container" style="background-color: #2196f3">
-    <h1 style="font-family: 'Courier New', Courier, monospace; font-weight: bold;">Forma de pagamento</h1>
+<body>
+  <div class="container">
+    <h1>Forma de Pagamento</h1>
     <div class="form-group">
       <label for="nome_cartao">Nome no Cartão:</label>
       <input type="text" class="form-control" id="nome_cartao" name="nome_cartao" required>
@@ -16,7 +17,9 @@
       <label for="cvv_cartao">CVV do Cartão:</label>
       <input type="text" class="form-control" id="cvv_cartao" name="cvv_cartao" required>
     </div>
-    <button class="btn btn-primary" style="background-color: #0a9f08; color: white; margin-right: 10px;" (click)="efetuarPagamento()">Pagar</button>
-    <button class="btn btn-primary" style="background-color: #0741ad; color: white; margin-right: 10px;" [routerLink]="['/meus-agendamentos']">Voltar</button>
+    <div class="btn-container">
+      <button class="btn btn-primary" (click)="efetuarPagamento()">Pagar</button>
+      <button class="btn btn-secondary" [routerLink]="['/meus-agendamentos']">Voltar</button>
+    </div>
   </div>
-  
+</body>

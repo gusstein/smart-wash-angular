@@ -50,7 +50,7 @@ export class UsuarioService {
   }
 
   public login(usuario: Partial<Usuario>) {
-    return this.httpClient.post<string>(`${this.API}/${this.LOGIN}`, usuario).pipe(first());
+    return this.httpClient.post<Usuario>(`${this.API}/${this.LOGIN}`, usuario).pipe(first());
   }
 
 }

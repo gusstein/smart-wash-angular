@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Usuario } from 'src/app/model/usuario';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
@@ -14,22 +15,32 @@ export class LoginComponent {
     nome: '',
     cpf: '',
     senha: '',
-    email: ''
+    email: '',
+    empresa:false
   };
 
-  constructor(private usuarioService: UsuarioService) {}
+  constructor(private usuarioService: UsuarioService, private router: Router) {}
   
   login(): void {
     this.usuarioService.login(this.usuario).subscribe(
-      (mensagem: string) => {
-        this.loginLiberado = mensagem === "1" ? true : false;
+      (usuario: Usuario) => {
+        localStorage.setItem('empresa', usuario.empresa.toString());
+        localStorage.setItem('usuario', usuario.nome);
+      
         this.usuario = {
           id: 0,
           nome: '',
           cpf: '',
           senha: '',
-          email: ''
+          email: '',
+          empresa:false
         };
+
+        if(usuario.nome != null ||usuario.nome != undefined){
+          this.router.navigate(['/servicos']);
+        } else {
+          console.error('Credenciais erradas');
+        }
       },
       (error: any) => {
         console.error('Credenciais erradas', error);

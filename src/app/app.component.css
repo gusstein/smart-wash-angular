@@ -23,14 +23,14 @@ body {
   margin-left: auto;
 }
 
-.profile-switch label {
+.profile-switch {
+  display: flex;
+  justify-content: space-between;
   background-color: #0741ad;
-  color: white;
-  padding: 5px 10px;
-  border-radius: 3px;
-  cursor: pointer;
-  margin: 0 5px;
-}
+  padding: 10px;
+  border-radius: 5px;
+  margin: 20px;
+  }
 
 .content {
   padding: 20px;
@@ -47,4 +47,55 @@ body {
   text-align: center;
   border-top: 2px solid #333333;
   border-bottom: 20px solid #333333;
+}
+
+.brand-name {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f1f1f1;
+}
+
+.brand-logo {
+  cursor: pointer;
+}
+
+.profile-switch {
+  position: relative;
+}
+
+.menu-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.menu-button {
+  padding: 10px 20px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+
+.menu-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.menu-item {
+  display: block;
+  width: 100%;
+  padding: 10px 20px;
+  border: none;
+  background-color: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+
+.menu-button:hover + .menu-content,
+.menu-content:hover {
+  display: block;
 }

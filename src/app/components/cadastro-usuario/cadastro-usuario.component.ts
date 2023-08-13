@@ -13,7 +13,8 @@ export class CadastroUsuarioComponent {
     nome: '',
     cpf: '',
     senha: '',
-    email: ''
+    email: '',
+    empresa: false
   };
 
   constructor(private usuarioService: UsuarioService) {}
@@ -27,7 +28,8 @@ export class CadastroUsuarioComponent {
           nome: '',
           cpf: '',
           senha: '',
-          email: ''
+          email: '',
+          empresa: false
         };
       },
       (error: any) => {

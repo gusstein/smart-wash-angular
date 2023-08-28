@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'Smart Wash';
+  empresa: boolean = false;
 
   constructor(private router: Router){}
   
@@ -20,6 +21,7 @@ export class AppComponent {
   }
 
   usuarioAtual(){
+    this.empresa = localStorage.getItem("empresa") === 'true' ? true : false;
     return localStorage.getItem("usuario")
   }
 }

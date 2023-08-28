@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./pagamento-agendamento.component.css']
 })
 export class PagamentoAgendamentoComponent {
-  efetuarPagamento(): void {
+  adicionarFormaPagamento(): void {
     // this.veiculoService.salvarVeiculo(this.veiculo).subscribe(
     //   (veiculoSalvo: Veiculo) => {
     //     console.log(`Veículo ${veiculoSalvo.modelo} salvo com sucesso!`);

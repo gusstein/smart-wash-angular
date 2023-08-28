@@ -6,7 +6,8 @@
         <div class="menu-dropdown">
           <button class="menu-button">MENU</button>
           <div class="menu-content">
-            <button class="menu-item"> {{ usuarioAtual() }}</button>
+            <button class="menu-item" > {{ usuarioAtual() }}</button>
+            <button *ngIf="!empresa" class="menu-item" [routerLink]="'pagamento-agendamento'">Pagamento</button>
             <button class="menu-item" (click)="sair()">Sair</button>
           </div>
         </div>

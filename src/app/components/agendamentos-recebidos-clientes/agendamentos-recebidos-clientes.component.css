@@ -1,0 +1,79 @@
+
+.header {
+    background-color: rgba(255, 255, 255, 0.31);
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .content {
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+  }
+  
+  h2 {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 10px;
+  }
+  
+  li {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+  }
+  
+  li:last-child {
+    margin-bottom: 0;
+  }
+  
+  .servicos-list {
+    list-style-type: none;
+    padding-left: 20px;
+    margin-top: 5px;
+  }
+  
+  .servico {
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .profile-switch {
+    display: flex;
+    justify-content: space-between;
+    background-color: #0741ad;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 20px;
+    }
+    
+    .profile-switch label {
+    background-color: #0741ad;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    }
+  
+    .botao.salvar {
+      background-color: #0741ad;
+      color: white;
+      padding: 5px 20px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      margin: 0 10px;
+      }

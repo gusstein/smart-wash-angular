@@ -1,0 +1,23 @@
+<body>
+    <div class="profile-switch">
+        <button class="botao salvar" for="client-profile" type="radio" id="client-profile" name="profile"
+        [routerLink]="['/cadastrar-servicos']">CADASTRAR SERVIÇOS</button>
+        <button class="botao salvar" for="client-profile" type="radio" id="client-profile" name="profile"
+        [routerLink]="['/servicos']">SERVIÇOS CADASTRADOS</button>
+  </div>
+  
+  <div class="content">
+    <h2>Agendamentos Realizados</h2>
+    <ul>
+      <li *ngFor="let agendamento of listaAgendamentos">
+        <b>Data:</b> {{ agendamento.dataEntrada | date:'dd/MM/yyyy HH:mm' }} - <b>Preço Total:</b> R${{ precoTotal }}
+        <ul class="servicos-list">
+          <b>Veiculos:</b> <li class="servico" *ngFor="let veiculos of agendamento.veiculos">{{ veiculos.marca }} - {{ veiculos.modelo }} </li>
+          <li *ngFor="let servico of agendamento.servicos" class="servico">
+            {{ servico.nome }} - R${{ servico.preco }} 
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  </body>

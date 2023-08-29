@@ -1,6 +1,9 @@
 <body>
-    <div class="header">
+    <div *ngIf="perfil == 0" class="header">
       <h1>AGENDAMENTO DE SERVIÇOS</h1>
+    </div>
+    <div *ngIf="perfil == 1" class="header">
+      <h1>SERVIÇOS DISPONÍVEIS</h1>
     </div>
   
     <div *ngIf="perfil == 0" class="profile-switch">
@@ -15,6 +18,8 @@
     <div *ngIf="perfil == 1" class="profile-switch">
       <button class="botao salvar" for="client-profile" type="radio" id="client-profile" name="profile"
       [routerLink]="['/cadastrar-servicos']">CADASTRAR SERVIÇOS</button>
+      <button class="botao salvar" for="client-profile" type="radio" id="client-profile" name="profile"
+      [routerLink]="['/agendamentos-clientes']">AGENDAMENTOS CLIENTE</button>
     </div>
   
     <div class="content">

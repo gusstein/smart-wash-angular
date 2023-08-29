@@ -8,6 +8,7 @@ import { CadastrarVeiculoComponent } from './components/cadastrar-veiculo/cadast
 import { LoginComponent } from './components/login/login.component';
 import { CadastroUsuarioComponent } from './components/cadastro-usuario/cadastro-usuario.component';
 import { PagamentoAgendamentoComponent } from './components/pagamento-agendamento/pagamento-agendamento.component';
+import { AgendamentosRecebidosClientesComponent } from './components/agendamentos-recebidos-clientes/agendamentos-recebidos-clientes.component';
 
 const routes: Routes = [
   { path: 'servicos', component: ServicosComponent},
@@ -17,8 +18,8 @@ const routes: Routes = [
   { path: 'cadastrar-veiculos', component: CadastrarVeiculoComponent},
   { path: '', component: LoginComponent},
   { path: 'cadastrar-usuario', component: CadastroUsuarioComponent},
-  { path: 'pagamento-agendamento', component: PagamentoAgendamentoComponent}
-
+  { path: 'pagamento-agendamento', component: PagamentoAgendamentoComponent},
+  { path: 'agendamentos-clientes', component: AgendamentosRecebidosClientesComponent}
 ];
 
 @NgModule({
